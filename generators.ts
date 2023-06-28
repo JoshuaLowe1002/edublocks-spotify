@@ -16,6 +16,14 @@ Blockly.Python['spotify_get_song'] = function(block) {
     return [code, 0];
 };
 
+Blockly.Python['spotify_get_song'] = function(block) {
+    var song = Blockly.Python.nameDB_.getName(block.getFieldValue('song'), Blockly.VARIABLE_CATEGORY_NAME);
+    var spotify = Blockly.Python.nameDB_.getName(block.getFieldValue('spotify'), Blockly.VARIABLE_CATEGORY_NAME);
+    var parameters = Blockly.Python.valueToCode(block, 'parameters', 0);
+    var code = `${song} = ${spotify}.get_song(${parameters})\n`;
+    return code;
+};  
+
 Blockly.Python['spotify_play_song'] = function(block) {
     var song = Blockly.Python.nameDB_.getName(block.getFieldValue('song'), Blockly.VARIABLE_CATEGORY_NAME);
     var code = `${song}.play()\n`;

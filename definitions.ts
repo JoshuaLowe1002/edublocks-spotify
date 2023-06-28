@@ -24,6 +24,8 @@ Blockly.Blocks['spotify_init'] = {
 Blockly.Blocks['spotify_get_song'] = {
     init: function() {
       this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("song"), "song")
+          .appendField(" = ")
           .appendField(new Blockly.FieldVariable("spotify"), "spotify")
           .appendField(".get_song(");
       this.appendValueInput("parameters")
@@ -31,7 +33,8 @@ Blockly.Blocks['spotify_get_song'] = {
       this.appendDummyInput()
           .appendField(")");
       this.setInputsInline(true);
-      this.setOutput(true, null);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
       this.setColour(spotifyColor);
     }
 };  
