@@ -1,5 +1,5 @@
 import requests
-from js import Audio
+from pyscript import window
 
 def urlify(in_string):
     return "%20".join(in_string.split())
@@ -23,7 +23,7 @@ class Song:
 
     def play(self):
         if self.player is None:
-            self.player = Audio.new(self.url)
+            self.player = window.Audio.new(self.url)
         self.player.play()
         
 class Spotify:
