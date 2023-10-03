@@ -2,5 +2,6 @@
     "mode": "python",
     "code": [
         "spotify.py"
-    ]
+    ],
+    "interpreter": "py"
 }
