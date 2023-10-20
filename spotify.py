@@ -27,7 +27,7 @@ class Song:
         self.player.play()
         
 class Spotify:
-    API_URL = "/api/spotify"
+    API_URL = f"{window.location.origin}/api/spotify"
 
     def __init__(self):
         self.token = self._get_token()
