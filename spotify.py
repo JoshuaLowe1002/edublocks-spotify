@@ -27,13 +27,13 @@ class Song:
         self.player.play()
         
 class Spotify:
-    API_URL = "https://pyscript-spotify-api.vercel.app/api"
+    API_URL = "/api/spotify"
 
     def __init__(self):
         self.token = self._get_token()
 
     def _get_token(self):
-        response = requests.get(f"{self.API_URL}/spotify-token")
+        response = requests.get(f"{self.API_URL}/token")
         data = response.json()
         return f"Bearer {data['token']}"
 
