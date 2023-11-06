@@ -1,11 +1,11 @@
-<category name="Spotify" colour="#1DB954" css-icon="customIcon fab fa-spotify">
-    <label text="Spotify"></label>
+<category name="Music" colour="#1DB954" css-icon="customIcon fab fa-music">
+    <label text="Music"></label>
 
-    <block type="import_spotify"></block>
+    <block type="import_music"></block>
 
-    <block type="spotify_init"></block>
+    <block type="music_init"></block>
 
-    <block type="spotify_get_song">
+    <block type="music_get_song">
         <value name="parameters">
             <shadow type="parameters">
                 <mutation color="#1DB954" items="1" limit="1" inputType="string" />
@@ -18,7 +18,7 @@
         </value>
     </block>
 
-    <block type="spotify_play_song"></block>
+    <block type="music_play_song"></block>
 
-    <block type="spotify_get_feature"></block>
+    <block type="music_get_feature"></block>
 </category>

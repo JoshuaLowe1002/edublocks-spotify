@@ -1,32 +1,32 @@
-const spotifyColor = "#1DB954";
+const musicColor = "#1DB954";
 
-Blockly.Blocks['import_spotify'] = {
+Blockly.Blocks['import_music'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("from spotify import Spotify");
+          .appendField("from music import Music");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(spotifyColor);
+      this.setColour(musicColor);
     }
 };
 
-Blockly.Blocks['spotify_init'] = {
+Blockly.Blocks['music_init'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("spotify"), "spotify")
-          .appendField(" = Spotify()");
+          .appendField(new Blockly.FieldVariable("music"), "music")
+          .appendField(" = Music()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(spotifyColor);
+      this.setColour(musicColor);
     }
 };
 
-Blockly.Blocks['spotify_get_song'] = {
+Blockly.Blocks['music_get_song'] = {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("song"), "song")
           .appendField(" = ")
-          .appendField(new Blockly.FieldVariable("spotify"), "spotify")
+          .appendField(new Blockly.FieldVariable("music"), "music")
           .appendField(".get_song(");
       this.appendValueInput("parameters")
           .setCheck(null);
@@ -35,11 +35,11 @@ Blockly.Blocks['spotify_get_song'] = {
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(spotifyColor);
+      this.setColour(musicColor);
     }
 };  
 
-Blockly.Blocks['spotify_play_song'] = {
+Blockly.Blocks['music_play_song'] = {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("song"), "song")
@@ -47,11 +47,11 @@ Blockly.Blocks['spotify_play_song'] = {
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(spotifyColor);
+      this.setColour(musicColor);
     }
 };  
 
-Blockly.Blocks['spotify_get_feature'] = {
+Blockly.Blocks['music_get_feature'] = {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("song"), "song")
@@ -59,6 +59,6 @@ Blockly.Blocks['spotify_get_feature'] = {
           .appendField(new Blockly.FieldDropdown([["name","name"], ["artists","artists"], ["danceability","danceability"], ["energy","energy"], ["key","key"], ["loudness","loudness"], ["speechiness","speechiness"], ["acousticness","acousticness"], ["instrumentalness","instrumentalness"], ["liveness","liveness"], ["valence","valence"], ["tempo","tempo"]]), "feature");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(spotifyColor);
+      this.setColour(musicColor);
     }
 };  

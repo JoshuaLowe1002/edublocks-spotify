@@ -26,7 +26,7 @@ class Song:
             self.player = window.Audio.new(self.url)
         self.player.play()
         
-class Spotify:
+class Music:
     API_URL = f"{window.location.origin}/api/spotify"
 
     def __init__(self):
