@@ -33,9 +33,12 @@ class Music:
         self.token = self._get_token()
 
     def _get_token(self):
-        response = requests.get(f"{self.API_URL}/token")
-        data = response.json()
-        return f"Bearer {data['token']}"
+        try:
+            response = requests.get(f"{self.API_URL}/token")
+            data = response.json()
+            return f"Bearer {data['token']}"
+        except requests.exceptions.HTTPError:
+            print("Spotify is currently rate-limiting EduBlocks. Please try again later.")
 
     def _get_spotify_headers(self):
         return {
@@ -44,15 +47,21 @@ class Music:
 
     def _search_tracks(self, song_name):
         search_url = f"{self.API_URL}/search?name={urlify(song_name)}"
-        response = requests.get(search_url, headers=self._get_spotify_headers())
-        data = response.json()
-        return data.get("tracks", {}).get("items", [])
+        try:
+            response = requests.get(search_url, headers=self._get_spotify_headers())
+            data = response.json()
+            return data.get("tracks", {}).get("items", [])
+        except requests.exceptions.HTTPError:
+            print("Spotify is currently rate-limiting EduBlocks. Please try again later.")
 
     def _get_song_features(self, track_id):
-        features_url = f"{self.API_URL}/song-features?id={track_id}"
-        response = requests.get(features_url, headers=self._get_spotify_headers())
-        data = response.json()
-        return data
+        try:
+            features_url = f"{self.API_URL}/song-features?id={track_id}"
+            response = requests.get(features_url, headers=self._get_spotify_headers())
+            data = response.json()
+            return data
+        except requests.exceptions.HTTPError:
+            print("Spotify is currently rate-limiting EduBlocks. Please try again later.")
 
     def get_song(self, song_name):
         tracks = self._search_tracks(song_name)
